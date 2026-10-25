@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>زفاف حلا وضاري</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Amiri', serif;
+  background: linear-gradient(135deg, #f8f0e5, #e6d5b8, #fffaf2);
+  color: #30251b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px 12px;
+}
+
+.container { width: 100%; max-width: 440px; }
+
+.hint {
+  font-size: 20px;
+  color: #806744;
+  animation: pulse 2s infinite;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  max-width: 90%;
+  margin: 35px auto;
+  position: relative;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.env-back {
+  position: absolute;
+  inset: 0;
+  background: #d9c29a;
+  border: 1px solid #b49a69;
+  border-radius: 5px;
+}
+
+.letter {
+  position: absolute;
+  width: 88%;
+  height: 90%;
+  left: 6%;
+  bottom: 0;
+  z-index: 2;
+  background: #fffdf7;
+  border: 1px solid #d7c5a5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease;
+}
+
+.letter small { font-size: 17px; }
+.letter strong { font-size: 32px; }
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #c6ac7d;
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
+  transform-origin: top;
+  transition: transform .8s ease;
+  z-index: 4;
+}
+
+.seal {
+  position: absolute;
+  z-index: 5;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #a88b59;
+  color: white;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  border: 2px solid #f8e9c9;
+  transition: opacity .4s;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(-115px);
+  transition-delay: .3s;
+}
+
+.envelope.open .seal { opacity: 0; }
+
+.invitation {
+  display: none;
+  background: rgba(255,253,247,.92);
+  border: 1px solid #c8ae7e;
+  padding: 25px 18px;
+  border-radius: 8px;
+  box-shadow: 0 10px 35px #80674420;
+  animation: appear 1s ease;
+}
+
+.invitation.show { display: block; }
+
+.bismillah { font-size: 23px; margin-bottom: 15px; }
+.families { font-size: 18px; line-height: 1.9; }
+.verse { color: #927747; font-size: 20px; margin: 18px 0; }
+
+h1 {
+  font-size: 48px;
+  margin: 5px 0;
+  color: #211910;
+}
+
+.ornament { color: #b49a69; font-size: 25px; }
+
+.details {
+  font-size: 20px;
+  line-height: 2;
+  margin-top: 15px;
+}
+
+.footer { margin-top: 18px; color: #806744; font-size: 17px; }
+
+button {
+  font-family: inherit;
+  font-size: 17px;
+  margin: 12px 5px 0;
+  padding: 9px 18px;
+  background: #b49a69;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button:hover { background: #927747; }
+
+@keyframes pulse {
+  50% { opacity: .55; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <p class="hint" id="hint">🤍 اضغط على الظرف لفتح الدعوة 🤍</p>
+
+  <div class="envelope" id="envelope" role="button" tabindex="0"
+       aria-label="افتح دعوة الزفاف">
+    <div class="env-back"></div>
+    <div class="letter">
+      <small>دعوة زفاف</small>
+      <strong>حلا وضاري</strong>
+      <span style="color:#b49a69">❧ ❦ ❧</span>
+    </div>
+    <div class="flap"></div>
+    <div class="seal">ح ♥ ض</div>
+  </div>
+
+  <section class="invitation" id="invitation">
+    <div class="bismillah">بسم الله الرحمن الرحيم</div>
+
+    <div class="families">
+      أبناء المرحوم عبدالحليم اللوزي<br>
+      والسيد عبدالله النقرش<br>
+      يتشرفون بدعوتكم لحضور حفل زفاف ولديهما
+    </div>
+
+    <div class="verse">
+      ﴿ وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+    </div>
+
+    <h1>حلا وضاري</h1>
+    <div class="ornament">ــــــــ ❦ ــــــــ</div>
+
+    <div class="details">
+      📅 الجمعة 20 / 11 / 2026<br>
+      🕖 من الساعة 7 حتى الساعة 10 مساءً<br>
+      📍 فندق ألف ليلة وليلة
+    </div>
+
+    <div class="footer">حضوركم يكمّل فرحتنا 🤍</div>
+
+    <button id="musicButton">♪ تشغيل الموسيقى</button>
+    <br>
+    <button id="closeButton">إغلاق الظرف</button>
+  </section>
+</div>
+
+<script>
+const envelope = document.getElementById('envelope');
+const invitation = document.getElementById('invitation');
+const hint = document.getElementById('hint');
+
+function openEnvelope() {
+  envelope.classList.add('open');
+  hint.textContent = 'ألف مبروك لحلا وضاري 🤍';
+
+  setTimeout(() => {
+    invitation.classList.add('show');
+  }, 500);
+}
+
+function closeEnvelope() {
+  invitation.classList.remove('show');
+  envelope.classList.remove('open');
+  hint.textContent = '🤍 اضغط على الظرف لفتح الدعوة 🤍';
+}
+
+envelope.addEventListener('click', openEnvelope);
+
+envelope.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    openEnvelope();
+  }
+});
+
+document.getElementById('closeButton').addEventListener('click', closeEnvelope);
+
+// نغمة موسيقية بسيطة تعمل بعد ضغط المستخدم على الزر
+let audioContext = null;
+let musicTimer = null;
+let musicPlaying = false;
+
+document.getElementById('musicButton').addEventListener('click', async function() {
+  const button = this;
+
+  if (musicPlaying) {
+    clearInterval(musicTimer);
+    if (audioContext) await audioContext.close();
+    audioContext = null;
+    musicPlaying = false;
+    button.textContent = '♪ تشغيل الموسيقى';
+    return;
+  }
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) {
+    button.textContent = 'الموسيقى غير مدعومة';
+    return;
+  }
+
+  audioContext = new AudioContextClass();
+  await audioContext.resume();
+
+  const notes = [523.25, 659.25, 783.99, 659.25,
+                 587.33, 698.46, 783.99, 698.46];
+  let index = 0;
+  musicPlaying = true;
+  button.textContent = '■ إيقاف الموسيقى';
+
+  musicTimer = setInterval(() => {
+    if (!audioContext) return;
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = 'sine';
+    oscillator.frequency.value = notes[index % notes.length];
+
+    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+      0.045, audioContext.currentTime + 0.08
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001, audioContext.currentTime + 0.5
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.55);
+
+    index++;
+  }, 600);
+});
+</script>
+
+</body>
+</html>
